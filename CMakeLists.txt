@@ -53,25 +53,22 @@ add_library(${LIBRARY}
     src/wifi.cpp
 )
 
-target_include_directories(${LIBRARY}
-    PUBLIC
-        ${CMAKE_CURRENT_LIST_DIR}/src
+target_include_directories(${LIBRARY} PUBLIC
+    ${CMAKE_CURRENT_LIST_DIR}/src
 )
 
 # When building the standalone example, its configuration
 # files are the application-wide FreeRTOS/lwIP configuration.
 if(PICO_WIFI_STANDALONE)
-    target_include_directories(${LIBRARY}
-        PRIVATE
-            ${CMAKE_CURRENT_LIST_DIR}/examples/include
+    target_include_directories(${LIBRARY} PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/examples/include
     )
 endif()
 
-target_link_libraries(${LIBRARY}
-    PUBLIC
-        pico_stdlib
-        pico_cyw43_arch_lwip_sys_freertos
-        FreeRTOS-Kernel-Heap4
+target_link_libraries(${LIBRARY} PUBLIC
+    pico_stdlib
+    pico_cyw43_arch_lwip_sys_freertos
+    FreeRTOS-Kernel-Heap4
 )
 
 # ---------------------------------------------------------
@@ -83,19 +80,16 @@ if(PICO_WIFI_STANDALONE)
         examples/main.cpp
     )
 
-    target_include_directories(${PROJECT}
-        PRIVATE
-            ${CMAKE_CURRENT_LIST_DIR}/examples/include
+    target_include_directories(${PROJECT} PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}/examples/include
     )
 
-    target_compile_definitions(${PROJECT}
-        PRIVATE
-            DEVICE_${DEVICE}
+    target_compile_definitions(${PROJECT} PRIVATE
+        DEVICE_${DEVICE}
     )
 
-    target_link_libraries(${PROJECT}
-        PRIVATE
-            ${LIBRARY}
+    target_link_libraries(${PROJECT} PRIVATE
+        ${LIBRARY}
     )
 
     pico_enable_stdio_usb(${PROJECT} 1)
