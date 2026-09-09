@@ -1,0 +1,2 @@
+# pico2w
+cp build/pico_wifi_example.uf2 /media/pi/RP2350
