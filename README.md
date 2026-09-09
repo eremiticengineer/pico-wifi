@@ -98,10 +98,3 @@ void wifi_task(void*) {
 ```
 
 With `pico_cyw43_arch_lwip_sys_freertos`, call `initialise()` after the FreeRTOS scheduler has started, from task context.
-
-
-
-
-
-git submodule add https://github.com/FreeRTOS/FreeRTOS-Kernel.git lib/FreeRTOS-Kernel
-git submodule update --init --recursive
