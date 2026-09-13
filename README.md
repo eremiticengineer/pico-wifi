@@ -98,3 +98,7 @@ void wifi_task(void*) {
 ```
 
 With `pico_cyw43_arch_lwip_sys_freertos`, call `initialise()` after the FreeRTOS scheduler has started, from task context.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
